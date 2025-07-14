@@ -3,7 +3,7 @@ import asyncio
 from fastapi import FastAPI, HTTPException, BackgroundTasks
 from uuid import uuid4, UUID
 
-from models import AgentRequest, AgentStatus
+from models import AgentRequest, AgentStatus, EnumAgentStatus
 from services.agent_runner import get_agent
 from services.status_store import create_run_status, update_status, status_store
 
@@ -38,14 +38,14 @@ async def run_agent(request: AgentRequest, background_tasks: BackgroundTasks):
         async with running_lock:
             try:
                 result = await agent.run()
-                update_status(run_id, 'completed', result=result)
+                update_status(run_id, EnumAgentStatus.COMPLETED, result=result)
             except Exception as e:
-                update_status(run_id, 'failed', error=str(e))
+                update_status(run_id, EnumAgentStatus.FAILED, error=str(e))
 
     # Schedule the agent runner task in background
     background_tasks.add_task(agent_runner)
 
-    return {'run_id': run_id, 'status': 'running'}
+    return {'run_id': run_id, 'status': EnumAgentStatus.RUNNING}
 
 
 @app.get('/agents/status/{run_id}', response_model=AgentStatus)

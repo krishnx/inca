@@ -1,6 +1,6 @@
 from uuid import UUID
 from typing import Dict
-from models import AgentStatus
+from models import AgentStatus, EnumAgentStatus
 from datetime import datetime, timezone
 
 status_store: Dict[UUID, AgentStatus] = {}
@@ -11,7 +11,7 @@ def create_run_status(run_id, agent_type, user_id):
         run_id=run_id,
         agent_type=agent_type,
         user_id=user_id,
-        status='running',
+        status=EnumAgentStatus.RUNNING,
         started_at=datetime.now(timezone.utc)
     )
     status_store[run_id] = status

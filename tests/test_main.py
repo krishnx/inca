@@ -3,6 +3,7 @@ import asyncio
 from httpx import AsyncClient
 from uuid import UUID
 from main import app, running_lock
+from models import EnumAgentStatus
 from services.status_store import status_store
 
 
@@ -29,13 +30,13 @@ async def test_run_agent_returns_running():
         assert response.status_code == 200
         data = response.json()
         assert 'run_id' in data
-        assert data['status'] == 'running'
+        assert data['status'] == EnumAgentStatus.RUNNING
 
-        # Check that the run_id status is 'running' initially
+        # Check that the run_id status is EnumAgentStatus.RUNNING initially
         run_id = data['run_id']
         status = status_store.get(UUID(run_id))
         assert status is not None
-        assert status.status in ("running", "completed")
+        assert status.status in (EnumAgentStatus.RUNNING, EnumAgentStatus.COMPLETED)
 
 
 @pytest.mark.asyncio
@@ -81,20 +82,20 @@ async def test_status_endpoint_progression():
         data = response.json()
         run_id = data['run_id']
 
-        # Immediately check status: should be 'running'
+        # Immediately check status: should be EnumAgentStatus.RUNNING
         response_status = await ac.get(f'/agents/status/{run_id}')
         assert response_status.status_code == 200
         status_data = response_status.json()
-        assert status_data["status"] in ("running", "completed")
+        assert status_data["status"] in (EnumAgentStatus.RUNNING, EnumAgentStatus.COMPLETED)
 
         # Wait long enough for background task (5 seconds sleep) + buffer
         await asyncio.sleep(6)
 
-        # Check status again: should be 'completed'
+        # Check status again: should be EnumAgentStatus.COMPLETED
         response_status = await ac.get(f'/agents/status/{run_id}')
         assert response_status.status_code == 200
         status_data = response_status.json()
-        assert status_data['status'] == 'completed'
+        assert status_data['status'] == EnumAgentStatus.COMPLETED
         assert status_data['result'] == 'extracted'
 
 
