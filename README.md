@@ -41,5 +41,87 @@ Integration tests use `httpx` + `pytest` to simulate:
 - Agent busy rejection
 - Invalid agent input
 
-## AI Use
-AI (ChatGPT) was used to scaffold file structure and refactor the code. All output was reviewed, debugged, and adjusted for clarity and alignment with requirements.
+
+## API Usage Examples
+
+### Trigger an Agent Run
+
+Send a POST request to start an agent run. Only one agent can run at a time. If another is running, you'll get an error.
+
+```bash
+curl -X POST "http://localhost:8000/agents/run" \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json" \
+  -d '{
+    "agent_type": "document-extractor",
+    "user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+  }'
+```
+
+#### Response example on success:
+
+```json
+{
+  "run_id": "8a1f4dca-7a6e-4f45-9a7b-9c1126dcae74",
+  "status": "running"
+}
+```
+
+#### Response example if another agent is already running:
+
+```json
+{
+  "detail": "An agent is already running. Please try again later."
+}
+```
+
+#### HTTP status code:** `409 Conflict`
+
+---
+
+### Query Agent Run Status
+
+Use the `run_id` from the trigger response to query the current status and result.
+
+```bash
+curl -X GET "http://localhost:8000/agents/status/8a1f4dca-7a6e-4f45-9a7b-9c1126dcae74" \
+  -H "Accept: application/json"
+```
+
+#### Response example while running:
+
+```json
+{
+  "run_id": "8a1f4dca-7a6e-4f45-9a7b-9c1126dcae74",
+  "agent_type": "document-extractor",
+  "user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "status": "running",
+  "result": null
+}
+```
+
+#### Response example after completion:
+
+```json
+{
+  "run_id": "8a1f4dca-7a6e-4f45-9a7b-9c1126dcae74",
+  "agent_type": "document-extractor",
+  "user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "status": "completed",
+  "result": {
+    "outcome": "approved"  // only for policy-checker agent, otherwise null or custom result
+  }
+}
+```
+
+#### Response example if run\_id is not found:
+
+```json
+{
+  "detail": "Run ID not found"
+}
+```
+
+#### HTTP status code:** `404 Not Found`
+
+---
