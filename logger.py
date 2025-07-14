@@ -5,7 +5,8 @@ logger = logging.getLogger('agent-runner')
 logger.setLevel(logging.INFO)
 handler = logging.StreamHandler(sys.stdout)
 formatter = logging.Formatter(
-    '{"level": "%(levelname)s", "message": "%(message)s"'
+    '{"timestamp": "%(asctime)s", "level": "%(levelname)s", "message": "%(message)s"}',
+    datefmt='%Y-%m-%dT%H:%M:%SZ'
 )
 
 logging.basicConfig(
