@@ -103,3 +103,9 @@
 {"timestamp": "2025-07-15T19:12:25Z", "level": "INFO", "message": "document-extractor agent for 3fa85f64-5717-4562-b3fc-2c963f66afa6 complete"}
 {"timestamp": "2025-07-15T19:12:25Z", "level": "DEBUG", "message": "Agent run completed successfully for LockKey(user_id=UUID('3fa85f64-5717-4562-b3fc-2c963f66afa6'), agent_type='document-extractor') with result: extracted"}
 {"timestamp": "2025-07-15T19:12:25Z", "level": "DEBUG", "message": "Released lock for LockKey(user_id=UUID('3fa85f64-5717-4562-b3fc-2c963f66afa6'), agent_type='document-extractor')"}
+{"timestamp": "2025-07-15T19:37:02Z", "level": "INFO", "message": "Running agent of type document-extractor for user 3fa85f64-5717-4562-b3fc-2c963f66afa6, timeout 10.0 seconds."}
+{"timestamp": "2025-07-15T19:37:02Z", "level": "DEBUG", "message": "Acquired lock for LockKey(user_id=UUID('3fa85f64-5717-4562-b3fc-2c963f66afa6'), agent_type='document-extractor') with timeout 10.0 seconds"}
+{"timestamp": "2025-07-15T19:37:02Z", "level": "INFO", "message": "Hello, I am a document-extractor agent for 3fa85f64-5717-4562-b3fc-2c963f66afa6"}
+{"timestamp": "2025-07-15T19:37:07Z", "level": "INFO", "message": "document-extractor agent for 3fa85f64-5717-4562-b3fc-2c963f66afa6 complete"}
+{"timestamp": "2025-07-15T19:37:07Z", "level": "DEBUG", "message": "Agent run completed successfully for LockKey(user_id=UUID('3fa85f64-5717-4562-b3fc-2c963f66afa6'), agent_type='document-extractor') with result: extracted"}
+{"timestamp": "2025-07-15T19:37:07Z", "level": "DEBUG", "message": "Released lock for LockKey(user_id=UUID('3fa85f64-5717-4562-b3fc-2c963f66afa6'), agent_type='document-extractor')"}

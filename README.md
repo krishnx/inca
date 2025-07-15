@@ -120,6 +120,7 @@ AI (ChatGPT-4) was used to:
 - Suggest patterns for timeout handling and lock management
 - logging setup
 - Generate this `README.md` outline based on project context
+- Terraform code
 
 ---
 
@@ -222,3 +223,19 @@ curl -X 'GET' \
 ```
 
 #### HTTP status code:** `404 Not Found
+
+## Terraform 
+### Usage
+To deploy the FastAPI application using Terraform, you can use the provided `main.tf` file. This file sets up an AWS EC2 instance with the necessary configurations to run the FastAPI app.
+### Prerequisites
+- Ensure you have Terraform installed on your machine.
+- Configure your AWS credentials using the AWS CLI or by setting environment variables.
+- Make sure you have an SSH key pair created in AWS for accessing the EC2 instance.
+- Ensure you have the necessary IAM permissions to create EC2 instances, security groups, and other resources.
+
+### Steps to Deploy
+```
+cd ./infra
+terraform init
+terraform apply
+```
