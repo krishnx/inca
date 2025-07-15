@@ -1,5 +1,6 @@
 import asyncio
 import logging
+import os
 from collections import defaultdict
 
 from fastapi import HTTPException, BackgroundTasks
@@ -33,7 +34,8 @@ def _get_lock(lock_key) -> asyncio.Lock | None:
     running_lock = running_locks[lock_key]
     locked = running_lock.locked()
     if locked:
-        # Already running
+        logger.warning(f'Lock already acquired for user_id: {lock_key.user_id}, agent_type: {lock_key.agent_type}.'
+                       ' Agent is already running.')
         raise HTTPException(status_code=409, detail='An agent is already running')
 
     return running_lock
@@ -47,7 +49,7 @@ def _get_agent(agent_type: AgentType, user_id: UUID) -> DocumentExtractorAgent |
 
 
 async def run_agent(agent_type: AgentType, user_id: UUID, background_tasks: BackgroundTasks,
-                    lock_timeout: float = 10.0) -> UUID:
+                    lock_timeout: float = float(os.getenv('LOCK_TIMEOUT_DURATION', 10.0))) -> UUID:
     """
     Factory function to create an agent instance based on the agent type.
 
@@ -80,7 +82,7 @@ async def run_agent(agent_type: AgentType, user_id: UUID, background_tasks: Back
         except asyncio.TimeoutError:
             logger.error(f'Failed to acquire lock for {lock_key} within {lock_timeout} seconds')
             update_status(run_id, AgentStatus.FAILED, error='Failed to acquire lock')
-            return
+            return None
 
         try:
             result = await asyncio.wait_for(agent.run(), timeout=lock_timeout)
@@ -96,6 +98,8 @@ async def run_agent(agent_type: AgentType, user_id: UUID, background_tasks: Back
             running_lock.release()
             if not running_lock.locked():
                 running_locks.pop(lock_key, None)
+
+            logger.debug(f'Released lock for {lock_key}')
 
     # Schedule the agent runner task in background
     background_tasks.add_task(agent_runner)

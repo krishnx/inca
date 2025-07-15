@@ -51,3 +51,55 @@
 {"timestamp": "2025-07-15T18:32:56Z", "level": "INFO", "message": "document-extractor agent for 3fa85f64-5717-4562-b3fc-2c963f66afa6 complete"}
 {"timestamp": "2025-07-15T18:32:57Z", "level": "INFO", "message": "Hello, I am a document-extractor agent for 3fa85f64-5717-4562-b3fc-2c963f66afa6"}
 {"timestamp": "2025-07-15T18:33:02Z", "level": "INFO", "message": "document-extractor agent for 3fa85f64-5717-4562-b3fc-2c963f66afa6 complete"}
+{"timestamp": "2025-07-15T18:55:51Z", "level": "INFO", "message": "Running agent of type document-extractor for user 3fa85f64-5717-4562-b3fc-2c963f66afa6, timeout 10.0 seconds."}
+{"timestamp": "2025-07-15T18:55:51Z", "level": "INFO", "message": "Hello, I am a document-extractor agent for 3fa85f64-5717-4562-b3fc-2c963f66afa6"}
+{"timestamp": "2025-07-15T18:55:53Z", "level": "INFO", "message": "Running agent of type document-extractor for user 3fa85f64-5717-4562-b3fc-2c963f66afa6, timeout 10.0 seconds."}
+{"timestamp": "2025-07-15T18:55:56Z", "level": "INFO", "message": "document-extractor agent for 3fa85f64-5717-4562-b3fc-2c963f66afa6 complete"}
+{"timestamp": "2025-07-15T18:58:13Z", "level": "INFO", "message": "Running agent of type document-extractor for user 3fa85f64-5717-4562-b3fc-2c963f66afa6, timeout 10.0 seconds."}
+{"timestamp": "2025-07-15T18:58:13Z", "level": "INFO", "message": "Hello, I am a document-extractor agent for 3fa85f64-5717-4562-b3fc-2c963f66afa6"}
+{"timestamp": "2025-07-15T18:58:14Z", "level": "INFO", "message": "Running agent of type document-extractor for user 3fa85f64-5717-4562-b3fc-2c963f66afa6, timeout 10.0 seconds."}
+{"timestamp": "2025-07-15T18:58:14Z", "level": "WARNING", "message": "Lock already acquired for user_id: 3fa85f64-5717-4562-b3fc-2c963f66afa6, agent_type: document-extractor.Agent is already running."}
+{"timestamp": "2025-07-15T18:58:18Z", "level": "INFO", "message": "document-extractor agent for 3fa85f64-5717-4562-b3fc-2c963f66afa6 complete"}
+{"timestamp": "2025-07-15T18:58:59Z", "level": "INFO", "message": "Running agent of type document-extractor for user 3fa85f64-5717-4562-b3fc-2c963f66afa6, timeout 10.0 seconds."}
+{"timestamp": "2025-07-15T18:58:59Z", "level": "INFO", "message": "Hello, I am a document-extractor agent for 3fa85f64-5717-4562-b3fc-2c963f66afa6"}
+{"timestamp": "2025-07-15T18:59:00Z", "level": "INFO", "message": "Running agent of type document-extractor for user 3fa85f64-5717-4562-b3fc-2c963f66afa6, timeout 10.0 seconds."}
+{"timestamp": "2025-07-15T18:59:00Z", "level": "WARNING", "message": "Lock already acquired for user_id: 3fa85f64-5717-4562-b3fc-2c963f66afa6, agent_type: document-extractor. Agent is already running."}
+{"timestamp": "2025-07-15T18:59:04Z", "level": "INFO", "message": "document-extractor agent for 3fa85f64-5717-4562-b3fc-2c963f66afa6 complete"}
+{"timestamp": "2025-07-15T19:02:11Z", "level": "INFO", "message": "Running agent of type document-extractor for user 3fa85f64-5717-4562-b3fc-2c963f66afa6, timeout 10.0 seconds."}
+{"timestamp": "2025-07-15T19:02:11Z", "level": "INFO", "message": "Hello, I am a document-extractor agent for 3fa85f64-5717-4562-b3fc-2c963f66afa6"}
+{"timestamp": "2025-07-15T19:02:12Z", "level": "INFO", "message": "Running agent of type document-extractor for user 3fa85f64-5717-4562-b3fc-2c963f66afa6, timeout 10.0 seconds."}
+{"timestamp": "2025-07-15T19:02:12Z", "level": "WARNING", "message": "Lock already acquired for user_id: 3fa85f64-5717-4562-b3fc-2c963f66afa6, agent_type: document-extractor. Agent is already running."}
+{"timestamp": "2025-07-15T19:02:16Z", "level": "INFO", "message": "document-extractor agent for 3fa85f64-5717-4562-b3fc-2c963f66afa6 complete"}
+{"timestamp": "2025-07-15T19:04:39Z", "level": "INFO", "message": "Running agent of type document-extractor for user 3fa85f64-5717-4562-b3fc-2c963f66afa6, timeout 10 seconds."}
+{"timestamp": "2025-07-15T19:04:40Z", "level": "INFO", "message": "Running agent of type document-extractor for user 3fa85f64-5717-4562-b3fc-2c963f66afa6, timeout 10 seconds."}
+{"timestamp": "2025-07-15T19:04:42Z", "level": "INFO", "message": "Running agent of type document-extractor for user 3fa85f64-5717-4562-b3fc-2c963f66afa6, timeout 10 seconds."}
+{"timestamp": "2025-07-15T19:04:42Z", "level": "INFO", "message": "Running agent of type document-extractor for user 3fa85f64-5717-4562-b3fc-2c963f66afa6, timeout 10 seconds."}
+{"timestamp": "2025-07-15T19:04:43Z", "level": "INFO", "message": "Running agent of type document-extractor for user 3fa85f64-5717-4562-b3fc-2c963f66afa6, timeout 10 seconds."}
+{"timestamp": "2025-07-15T19:04:44Z", "level": "INFO", "message": "Running agent of type document-extractor for user 3fa85f64-5717-4562-b3fc-2c963f66afa6, timeout 10 seconds."}
+{"timestamp": "2025-07-15T19:04:44Z", "level": "INFO", "message": "Running agent of type document-extractor for user 3fa85f64-5717-4562-b3fc-2c963f66afa6, timeout 10 seconds."}
+{"timestamp": "2025-07-15T19:06:24Z", "level": "INFO", "message": "Running agent of type document-extractor for user 3fa85f64-5717-4562-b3fc-2c963f66afa6, timeout 10.0 seconds."}
+{"timestamp": "2025-07-15T19:06:24Z", "level": "INFO", "message": "Hello, I am a document-extractor agent for 3fa85f64-5717-4562-b3fc-2c963f66afa6"}
+{"timestamp": "2025-07-15T19:06:25Z", "level": "INFO", "message": "Running agent of type document-extractor for user 3fa85f64-5717-4562-b3fc-2c963f66afa6, timeout 10.0 seconds."}
+{"timestamp": "2025-07-15T19:06:25Z", "level": "WARNING", "message": "Lock already acquired for user_id: 3fa85f64-5717-4562-b3fc-2c963f66afa6, agent_type: document-extractor. Agent is already running."}
+{"timestamp": "2025-07-15T19:06:29Z", "level": "INFO", "message": "document-extractor agent for 3fa85f64-5717-4562-b3fc-2c963f66afa6 complete"}
+{"timestamp": "2025-07-15T19:07:51Z", "level": "INFO", "message": "Running agent of type document-extractor for user 3fa85f64-5717-4562-b3fc-2c963f66afa6, timeout 10.0 seconds."}
+{"timestamp": "2025-07-15T19:07:51Z", "level": "INFO", "message": "Hello, I am a document-extractor agent for 3fa85f64-5717-4562-b3fc-2c963f66afa6"}
+{"timestamp": "2025-07-15T19:07:52Z", "level": "INFO", "message": "Running agent of type document-extractor for user 3fa85f64-5717-4562-b3fc-2c963f66afa6, timeout 10.0 seconds."}
+{"timestamp": "2025-07-15T19:07:52Z", "level": "WARNING", "message": "Lock already acquired for user_id: 3fa85f64-5717-4562-b3fc-2c963f66afa6, agent_type: document-extractor. Agent is already running."}
+{"timestamp": "2025-07-15T19:07:56Z", "level": "INFO", "message": "document-extractor agent for 3fa85f64-5717-4562-b3fc-2c963f66afa6 complete"}
+{"timestamp": "2025-07-15T19:10:58Z", "level": "INFO", "message": "Running agent of type document-extractor for user 3fa85f64-5717-4562-b3fc-2c963f66afa6, timeout 10.0 seconds."}
+{"timestamp": "2025-07-15T19:10:58Z", "level": "INFO", "message": "Hello, I am a document-extractor agent for 3fa85f64-5717-4562-b3fc-2c963f66afa6"}
+{"timestamp": "2025-07-15T19:10:59Z", "level": "INFO", "message": "Running agent of type document-extractor for user 3fa85f64-5717-4562-b3fc-2c963f66afa6, timeout 10.0 seconds."}
+{"timestamp": "2025-07-15T19:10:59Z", "level": "WARNING", "message": "Lock already acquired for user_id: 3fa85f64-5717-4562-b3fc-2c963f66afa6, agent_type: document-extractor. Agent is already running."}
+{"timestamp": "2025-07-15T19:11:03Z", "level": "INFO", "message": "document-extractor agent for 3fa85f64-5717-4562-b3fc-2c963f66afa6 complete"}
+{"timestamp": "2025-07-15T19:11:12Z", "level": "INFO", "message": "Running agent of type document-extractor for user 3fa85f64-5717-4562-b3fc-2c963f66afa6, timeout 10.0 seconds."}
+{"timestamp": "2025-07-15T19:11:12Z", "level": "INFO", "message": "Hello, I am a document-extractor agent for 3fa85f64-5717-4562-b3fc-2c963f66afa6"}
+{"timestamp": "2025-07-15T19:11:17Z", "level": "INFO", "message": "document-extractor agent for 3fa85f64-5717-4562-b3fc-2c963f66afa6 complete"}
+{"timestamp": "2025-07-15T19:12:20Z", "level": "INFO", "message": "Running agent of type document-extractor for user 3fa85f64-5717-4562-b3fc-2c963f66afa6, timeout 10.0 seconds."}
+{"timestamp": "2025-07-15T19:12:20Z", "level": "DEBUG", "message": "Acquired lock for LockKey(user_id=UUID('3fa85f64-5717-4562-b3fc-2c963f66afa6'), agent_type='document-extractor') with timeout 10.0 seconds"}
+{"timestamp": "2025-07-15T19:12:20Z", "level": "INFO", "message": "Hello, I am a document-extractor agent for 3fa85f64-5717-4562-b3fc-2c963f66afa6"}
+{"timestamp": "2025-07-15T19:12:21Z", "level": "INFO", "message": "Running agent of type document-extractor for user 3fa85f64-5717-4562-b3fc-2c963f66afa6, timeout 10.0 seconds."}
+{"timestamp": "2025-07-15T19:12:21Z", "level": "WARNING", "message": "Lock already acquired for user_id: 3fa85f64-5717-4562-b3fc-2c963f66afa6, agent_type: document-extractor. Agent is already running."}
+{"timestamp": "2025-07-15T19:12:25Z", "level": "INFO", "message": "document-extractor agent for 3fa85f64-5717-4562-b3fc-2c963f66afa6 complete"}
+{"timestamp": "2025-07-15T19:12:25Z", "level": "DEBUG", "message": "Agent run completed successfully for LockKey(user_id=UUID('3fa85f64-5717-4562-b3fc-2c963f66afa6'), agent_type='document-extractor') with result: extracted"}
+{"timestamp": "2025-07-15T19:12:25Z", "level": "DEBUG", "message": "Released lock for LockKey(user_id=UUID('3fa85f64-5717-4562-b3fc-2c963f66afa6'), agent_type='document-extractor')"}

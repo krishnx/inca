@@ -1,12 +1,12 @@
 import logging
+import os
 import sys
 
 logger = logging.getLogger('agent-runner')
-logger.setLevel(logging.INFO)
 handler = logging.StreamHandler(sys.stdout)
 
 logging.basicConfig(
-    level=logging.INFO,
+    level=os.getenv('LOG_LEVEL', 'INFO').upper(),
     format='{"timestamp": "%(asctime)s", "level": "%(levelname)s", "message": "%(message)s"}',
     datefmt='%Y-%m-%dT%H:%M:%SZ',
     handlers=[
@@ -16,7 +16,3 @@ logging.basicConfig(
 )
 
 logger.addHandler(handler)
-
-
-def log_with_extra(msg, level='info', **extra):
-    getattr(logger, level)(msg, extra=extra)

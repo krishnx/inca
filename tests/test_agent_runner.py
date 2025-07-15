@@ -101,10 +101,10 @@ async def test_agent_runner_failure(monkeypatch):
 
     called = {"status": None, "error": None}
 
-    def mock_create_run_status(run_id, agent_type, user_id):
+    def mock_create_run_status(run_id, agent_type, user_id):  # noqa: F841
         pass
 
-    def mock_update_status(run_id, status, result=None, error=None):
+    def mock_update_status(run_id, status, result=None, error=None):  # noqa: F841
         called["status"] = status
         called["error"] = error
 
