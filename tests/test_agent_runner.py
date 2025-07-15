@@ -1,9 +1,12 @@
+import asyncio
+
 import pytest
 from uuid import UUID, uuid4
 from fastapi import BackgroundTasks, HTTPException
 
 from services import agent_runner
-from models.enums import AgentType, AgentStatus
+from models.enums import AgentType, AgentStatus, LockKey
+from services.agent_runner import running_locks
 
 
 class MockAgent:
@@ -48,18 +51,25 @@ async def test_run_agent_invalid_type():
 async def test_run_agent_already_running(monkeypatch):
     background_tasks = BackgroundTasks()
     user_id = uuid4()
+    agent_type = AgentType.DOCUMENT_EXTRACTOR
+    lock_key = LockKey(user_id=user_id, agent_type=agent_type)
 
-    # Lock the running_lock manually
-    await agent_runner.running_lock.acquire()
+    # Create and acquire the lock manually
+    lock = asyncio.Lock()
+    await lock.acquire()
+    running_locks[lock_key] = lock
 
     try:
         with pytest.raises(HTTPException) as exc_info:
-            await agent_runner.run_agent(AgentType.DOCUMENT_EXTRACTOR, user_id, background_tasks)
+            await agent_runner.run_agent(agent_type, user_id, background_tasks)
 
         assert exc_info.value.status_code == 409
         assert "already running" in str(exc_info.value.detail)
     finally:
-        agent_runner.running_lock.release()
+        # Ensure the lock is released and cleaned up
+        if lock.locked():
+            lock.release()
+        running_locks.pop(lock_key, None)
 
 
 @pytest.mark.asyncio

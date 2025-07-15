@@ -5,10 +5,12 @@ from logger import logger
 
 
 class PolicyCheckerAgent(IAgent):
+    RUN_TIME = 3  # seconds
+
     async def run(self) -> str:
         logger.info(f'Hello, I am a policy-checker agent for {self.user_id}')
 
-        await asyncio.sleep(5)
+        await asyncio.sleep(self.RUN_TIME)
 
         result = random.choice(['approved', 'rejected'])
 
