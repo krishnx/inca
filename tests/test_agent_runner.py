@@ -76,7 +76,7 @@ async def test_run_agent_already_running(monkeypatch):
 async def test_run_agent_instantiation_error(monkeypatch):
     class FailingAgent:
         def __init__(self, user_id):
-            raise ValueError("Invalid user_id")
+            raise ValueError('Invalid user_id')
 
     monkeypatch.setitem(agent_runner.AGENT_FACTORY, AgentType.DOCUMENT_EXTRACTOR, FailingAgent)
     background_tasks = BackgroundTasks()
