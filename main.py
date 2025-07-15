@@ -3,7 +3,8 @@ import asyncio
 from fastapi import FastAPI, HTTPException, BackgroundTasks
 from uuid import uuid4, UUID
 
-from models import AgentRequest, AgentStatus, EnumAgentStatus
+from models.models import AgentRequest, AgentStatus
+from models.enums import AgentStatus as EnumAgentStatus
 from services.agent_runner import get_agent
 from services.status_store import create_run_status, update_status, status_store
 

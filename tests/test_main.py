@@ -3,7 +3,7 @@ import asyncio
 from httpx import AsyncClient
 from uuid import UUID
 from main import app, running_lock
-from models import EnumAgentStatus
+from models.enums import AgentStatus as EnumAgentStatus
 from services.status_store import status_store
 
 

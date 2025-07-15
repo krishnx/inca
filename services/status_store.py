@@ -1,6 +1,7 @@
 from uuid import UUID
 from typing import Dict
-from models import AgentStatus, EnumAgentStatus
+from models.models import AgentStatus
+from models.enums import AgentStatus as EnumAgentStatus
 from datetime import datetime, timezone
 
 status_store: Dict[UUID, AgentStatus] = {}
