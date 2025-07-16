@@ -112,7 +112,7 @@ async def test_agent_runner_failure(monkeypatch):
     monkeypatch.setattr(agent_runner, 'update_status', mock_update_status)
 
     background_tasks = BackgroundTasks()
-    run_id = await agent_runner.run_agent(AgentType.DOCUMENT_EXTRACTOR, uuid4(), background_tasks)
+    run_id = await agent_runner.run_agent(AgentType.DOCUMENT_EXTRACTOR, uuid4(), background_tasks)  # noqa: F841
 
     # Manually run the background task
     await background_tasks.tasks[0]()

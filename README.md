@@ -6,6 +6,44 @@ This project provides a simplified execution framework for AI agents using FastA
 
 The system allows users to trigger specific agent types (e.g., `DOCUMENT_EXTRACTOR`, `POLICY_CHECKER`) through an API endpoint. Each agent runs asynchronously as a background task and is designed to simulate long-running or resource-intensive operations.
 
+## ⚙️ Setup Instructions (Docker-Based)
+
+### 1. Prerequisites
+
+- Docker: [Install Docker](https://docs.docker.com/get-docker/)
+
+### 2. Clone the Repository
+
+```bash
+git clone https://github.com/krishnx/inca.git
+cd inca
+```
+
+### 3. Start the Application
+```bash
+make up
+```
+
+### 4. Run Tests
+```bash
+make test
+```
+
+### 5. Code Quality Checks
+```bash
+make lint
+```
+
+### 6. Stop the Application
+```bash
+make down
+```
+
+### 7. Rebuild Containers
+```bash
+make rebuild
+```
+
 ---
 
 ## 📦 Current Design Highlights
