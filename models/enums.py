@@ -3,9 +3,9 @@ from enum import Enum
 
 
 class AgentStatus(str, Enum):
-    RUNNING = "running"
-    COMPLETED = "completed"
-    FAILED = "failed"
+    RUNNING = 'running'
+    COMPLETED = 'completed'
+    FAILED = 'failed'
 
 
 class AgentType(str, Enum):

@@ -14,15 +14,15 @@ class MockAgent:
         self.user_id = user_id
 
     async def run(self):
-        return "mock result"
+        return 'mock result'
 
 
 @pytest.mark.asyncio
 async def test_run_agent_success(monkeypatch):
     run_id_holder = {}
 
-    monkeypatch.setattr(agent_runner, "create_run_status", lambda rid, a, u: run_id_holder.update({"run_id": rid}))
-    monkeypatch.setattr(agent_runner, "update_status", lambda rid, status, result=None, error=None: None)
+    monkeypatch.setattr(agent_runner, 'create_run_status', lambda rid, a, u: run_id_holder.update({'run_id': rid}))
+    monkeypatch.setattr(agent_runner, 'update_status', lambda rid, status, result=None, error=None: None)
     monkeypatch.setitem(agent_runner.AGENT_FACTORY, AgentType.DOCUMENT_EXTRACTOR, MockAgent)
 
     background_tasks = BackgroundTasks()
@@ -31,7 +31,7 @@ async def test_run_agent_success(monkeypatch):
     run_id = await agent_runner.run_agent(AgentType.DOCUMENT_EXTRACTOR, user_id, background_tasks)
 
     assert isinstance(run_id, UUID)
-    assert run_id_holder["run_id"] == run_id
+    assert run_id_holder['run_id'] == run_id
     assert len(background_tasks.tasks) == 1
 
 
@@ -41,10 +41,10 @@ async def test_run_agent_invalid_type():
     user_id = uuid4()
 
     with pytest.raises(HTTPException) as exc_info:
-        await agent_runner.run_agent("INVALID_TYPE", user_id, background_tasks)  # type: ignore
+        await agent_runner.run_agent('INVALID_TYPE', user_id, background_tasks)  # type: ignore
 
     assert exc_info.value.status_code == 400
-    assert "Unknown agent type" in str(exc_info.value.detail)
+    assert 'Unknown agent type' in str(exc_info.value.detail)
 
 
 @pytest.mark.asyncio
@@ -64,7 +64,7 @@ async def test_run_agent_already_running(monkeypatch):
             await agent_runner.run_agent(agent_type, user_id, background_tasks)
 
         assert exc_info.value.status_code == 409
-        assert "already running" in str(exc_info.value.detail)
+        assert 'already running' in str(exc_info.value.detail)
     finally:
         # Ensure the lock is released and cleaned up
         if lock.locked():
@@ -85,7 +85,7 @@ async def test_run_agent_instantiation_error(monkeypatch):
         await agent_runner.run_agent(AgentType.DOCUMENT_EXTRACTOR, uuid4(), background_tasks)
 
     assert exc_info.value.status_code == 400
-    assert "Invalid user_id" in str(exc_info.value.detail)
+    assert 'Invalid user_id' in str(exc_info.value.detail)
 
 
 @pytest.mark.asyncio
@@ -95,21 +95,21 @@ async def test_agent_runner_failure(monkeypatch):
             self.user_id = user_id
 
         async def run(self):
-            raise RuntimeError("Something went wrong")
+            raise RuntimeError('Something went wrong')
 
     monkeypatch.setitem(agent_runner.AGENT_FACTORY, AgentType.DOCUMENT_EXTRACTOR, FailingAgent)
 
-    called = {"status": None, "error": None}
+    called = {'status': None, 'error': None}
 
     def mock_create_run_status(run_id, agent_type, user_id):  # noqa: F841
         pass
 
     def mock_update_status(run_id, status, result=None, error=None):  # noqa: F841
-        called["status"] = status
-        called["error"] = error
+        called['status'] = status
+        called['error'] = error
 
-    monkeypatch.setattr(agent_runner, "create_run_status", mock_create_run_status)
-    monkeypatch.setattr(agent_runner, "update_status", mock_update_status)
+    monkeypatch.setattr(agent_runner, 'create_run_status', mock_create_run_status)
+    monkeypatch.setattr(agent_runner, 'update_status', mock_update_status)
 
     background_tasks = BackgroundTasks()
     run_id = await agent_runner.run_agent(AgentType.DOCUMENT_EXTRACTOR, uuid4(), background_tasks)
@@ -117,5 +117,5 @@ async def test_agent_runner_failure(monkeypatch):
     # Manually run the background task
     await background_tasks.tasks[0]()
 
-    assert called["status"] == AgentStatus.FAILED
-    assert "Something went wrong" in called["error"]
+    assert called['status'] == AgentStatus.FAILED
+    assert 'Something went wrong' in called['error']
